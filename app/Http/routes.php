@@ -16,6 +16,10 @@
 
 // Route::get('home', 'HomeController@index');
 
+Route::get('home', function () {
+    return 'Hello World';
+});
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
