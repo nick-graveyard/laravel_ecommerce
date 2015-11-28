@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model {
 
-	  protected $fillable = ['user_id', "image_id", "about_me"];
+	  protected $fillable = ['user_id', 'image_id', 'about_me'];
 	  protected $softDelete = true;
 
 
