@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>My Laravel Ecommerce Site</title>
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+
+	<link href="{{ asset('/skins/skin_a/css/main.css') }}" rel="stylesheet">
+	<link href="{{ asset('/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -56,7 +58,11 @@
 	@yield('content')
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="{{ asset('/vendor/jquery/jquery-2.1.4.min.js') }}"></script>
+	<script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+
+	<!-- script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script -->
 </body>
 </html>

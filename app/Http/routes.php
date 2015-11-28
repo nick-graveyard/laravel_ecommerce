@@ -16,15 +16,20 @@
 
 // Route::get('home', 'HomeController@index');
 
-Route::get('home', function () {
-    return 'Hello World';
+
+Route::get('/', function () {
+    return view('skins/skin_a/home');
 });
+
+
+Route::get('/skin_b', function () {
+    return view('skins/skin_b/home');
+});
+
 
 
 Route::resource('category', 'CategoryController');
 Route::resource('product', 'ProductController');
-
-
 Route::get('/product/category/{category_name}',  'ProductController@showByCategory') ;
 
 
