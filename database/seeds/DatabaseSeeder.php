@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Image;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder {
 
