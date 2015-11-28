@@ -1,4 +1,6 @@
-<?php namespace App;
+<?php 
+
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +18,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'users';
+	protected $softDelete = true;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -30,5 +33,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+
+	public function user_profile()
+	{
+		return $this->hasOne('App\UserProfile');
+	}
 
 }

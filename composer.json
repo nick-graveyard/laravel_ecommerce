@@ -5,7 +5,10 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*"
+		"laravel/framework": "5.0.*",
+		"fzaninotto/faker" : "dev-master",
+		"stripe/stripe-php" : "dev-master",
+		"dompdf/dompdf" : "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
