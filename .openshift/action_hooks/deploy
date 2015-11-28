@@ -84,9 +84,15 @@ if [  -f ${OPENSHIFT_REPO_DIR}.openshift/.env ]; then
   cp -f ${OPENSHIFT_REPO_DIR}.openshift/.env ${OPENSHIFT_REPO_DIR}/.env
 fi
 
-echo 1>&2
-echo "Running 'php artisan migrate --force'..." 1>&2
+# echo 1>&2
+# echo "Running 'php artisan migrate --force'..." 1>&2
+# echo 1>&2
+# pushd ${OPENSHIFT_REPO_DIR} > /dev/null
+#php artisan migrate --force
+# popd > /dev/null
+
+echo "Migrating and Seeding the database"
 echo 1>&2
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
-php artisan migrate --force
+php artisan migrate:refresh --seed
 popd > /dev/null

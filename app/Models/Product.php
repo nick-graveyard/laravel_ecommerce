@@ -21,16 +21,17 @@ class Product extends Model {
 	    }
 
 	
-	/**
-    * Scope a Product Call to only include Products from a category.
-    *
-    * @return \Illuminate\Database\Eloquent\Builder
-    */
-    public function scopeOfCategoryName($query, $category_name)
-    {
-    	// note name is a unique column in the Category table
-    	$category_id = Category::where('name', $category_name)->first()->id;
-        return $query->where('category_id', $category_id);
-    }
+		/**
+		* Scope: ```ofCategory(category_name)``` 
+	    * Scope a Product query to only include Products from a specific category.
+	    *
+	    * @return \Illuminate\Database\Eloquent\Builder
+	    */
+	    public function scopeOfCategoryName($query, $category_name)
+	    {
+	    	// note name is a unique column in the Category table
+	    	$category_id = Category::where('name', $category_name)->first()->id;
+	        return $query->where('category_id', $category_id);
+	    }
 
 }
