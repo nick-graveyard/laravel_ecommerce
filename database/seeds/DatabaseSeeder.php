@@ -63,7 +63,7 @@ class SeederUtil extends Seeder {
 
      public function getRandRec()
      {
-        return rand(0, $this->num_records - 1);
+        return rand(1, $this->num_records);
      }
 
       public function getFaker()
@@ -120,7 +120,7 @@ class ImagesTableSeeder extends SeederUtil {
         for ($i = 0; $i < $this->num_records; $i++)
         { 
             $array = [
-                "url_location" => $image_list[ $this->getRandRec() % 5 ], 
+                "url_location" => $image_list[ $i % 5 ], 
                 "description" => $this->getFaker()->text
                 ];
 

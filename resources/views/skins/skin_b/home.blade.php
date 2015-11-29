@@ -3,12 +3,19 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+				<div class="panel-heading">Shirtvana Transcendence</div>
 
 				<div class="panel-body">
-					Hello!
+						
+						{{-- product index loop --}}
+						@each('models.product.index', $products, 'product')
+
+
+					    {{-- pagination --}}
+					    {!! $products->render() !!}
+
 				</div>
 			</div>
 		</div>

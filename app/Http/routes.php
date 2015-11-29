@@ -1,4 +1,5 @@
 <?php
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,29 +13,23 @@
 */
 
 
-// Route::get('/', 'WelcomeController@index');
+Route::get('/', ['as' => 'home', function () {
+	$products = Product::select('*')->orderBy('created_at', 'desc')->paginate();
+    return view('skins/skin_b/home', ['products' => $products] );
+}]);
 
-// Route::get('home', 'HomeController@index');
 
-
-Route::get('/', function () {
-    return view('skins/skin_a/home');
+Route::get('/product/category/{category_name}',  function(){
+	$product = Product::ofCategory($category_name)->get();
+	return response()->json($product);
 });
 
 
-Route::get('/skin_b', function () {
-    return view('skins/skin_b/home');
-});
 
 
-
+// REST routes
 Route::resource('category', 'CategoryController');
 Route::resource('product', 'ProductController');
-Route::get('/product/category/{category_name}',  'ProductController@showByCategory') ;
-
-
-
-
 
 
 
@@ -60,3 +55,20 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('hello_world', function () {
     return 'Hello World';
 });
+
+
+
+
+
+
+
+
+// Idea GraveYard
+//-----------------
+// Route::get('/', 'WelcomeController@index');
+// Route::get('home', 'HomeController@index');
+/* 
+Route::get('/skin_a', function () {
+    return view('skins/skin_a/home');
+});
+*/

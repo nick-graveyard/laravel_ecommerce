@@ -33,15 +33,6 @@ class ProductController extends Controller {
 
 
 
-
-	public function showByCategory($category_name)
-	{
-		$product = Product::ofCategoryName($category_name)->get();
-		return response()->json($product);
-	}
-
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
