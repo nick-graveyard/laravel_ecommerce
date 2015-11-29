@@ -14,7 +14,7 @@ use App\Models\Product;
 
 
 Route::get('/', ['as' => 'home', function () {
-	$products = Product::select('*')->orderBy('created_at', 'desc')->paginate();
+	$products = Product::select('*')->orderBy('created_at', 'desc')->paginate(5);
     return view('skins/skin_b/home', ['products' => $products] );
 }]);
 
