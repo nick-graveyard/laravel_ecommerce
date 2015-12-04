@@ -57,7 +57,11 @@ Route::get('/product/category/{category_name}',  function(){
 	return response()->json($product);
 });
 
-
+Route::get('/account', array('as' => 'account', function(){
+	$user = Auth::user();
+	$controller = 'App\Http\Controllers\UserController';
+    return App::make($controller)->show($user->id);
+}));
 
 
 
@@ -66,11 +70,9 @@ Route::resource('categories', 'CategoryController');
 Route::resource('products', 'ProductController');
 Route::resource('orders', 'OrderController');
 
-Route::get('/account', array('as' => 'account', function(){
-	$user = Auth::user();
-	$controller = 'App\Http\Controllers\UserController';
-    return App::make($controller)->show($user->id);
-}));
+
+
+
 
 
 # get currently logged in user's account
