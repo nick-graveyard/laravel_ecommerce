@@ -20,7 +20,6 @@ class Product extends Model {
 	        return $this->belongsTo('App\Models\Category');
 	    }
 
-
 	    public function scopeOfCategory($query, $category_name)
 	    {
 	    	// note name is a unique column in the Category table

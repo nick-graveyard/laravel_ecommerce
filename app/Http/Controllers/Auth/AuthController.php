@@ -7,6 +7,10 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
 
+# the redirect path for successful post-authentication
+protected $redirectPath = '/';
+# the redirect path for unsuccessful post-authentication
+protected $loginPath = '/login';
 	/*
 	|--------------------------------------------------------------------------
 	| Registration & Login Controller

@@ -2,11 +2,13 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\User;
 
-class ProductController extends Controller {
+
+class UserController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,26 +17,8 @@ class ProductController extends Controller {
 	 */
 	public function index()
 	{
-		$products = Product::select('*')->orderBy('created_at', 'desc')->paginate(5);
-		return view('skins/skin_b/product/index', ['products' => $products] );
-
-		# return response()->json( Product::all() );
+		
 	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-
-	public function show($id)
-	{
-		//need to guard for non-existence
-		return response()->json( Product::find($id) );
-	}
-
-
 
 	/**
 	 * Show the form for creating a new resource.
@@ -56,6 +40,21 @@ class ProductController extends Controller {
 		//
 	}
 
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		#find user 
+		$user =  User::findOrFail($id);
+		#skin to call
+		$view = 'skins.skin_b.user.show';
+		#call the view with the user
+		return view( $view , ['user' => $user]);
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -89,5 +88,6 @@ class ProductController extends Controller {
 	{
 		//
 	}
+
 
 }

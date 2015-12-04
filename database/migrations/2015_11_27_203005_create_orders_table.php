@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer("user_id");
+			$table->boolean("is_open")->default(true);
 			$table->timestamps();
 		});
 	}

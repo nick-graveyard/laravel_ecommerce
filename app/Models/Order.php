@@ -11,17 +11,17 @@ class Order extends Model {
 
 	public function user()
 	    {
-	        return $this->belongsTo('App\User');
+	        return $this->belongsTo('App\Models\User');
 	    }
 
-	public function price_adjustments()
+	public function adjustments()
 	    {
-	        return $this->hasMany('App\PriceAdjustments');
+	        return $this->hasMany('App\Models\PriceAdjustment');
 	    }
 
-	public function order_products()
+	public function items()
 	    {
-	        return $this->hasMany('App\OrderProduct');
+	        return $this->hasMany('App\Models\OrderItem');
 	    }
 
 }

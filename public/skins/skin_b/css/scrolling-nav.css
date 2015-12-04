@@ -13,12 +13,17 @@ html {
 }
 
 .navbar {
-  margin-bottom: 20px;
+}
+
+
+#main-stage
+{
+    /* needed to give adequate margin for the nav bar which is out of the flow. */
+    margin-top:55px;
 }
 
 
 
-}
 
 /* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
 The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 

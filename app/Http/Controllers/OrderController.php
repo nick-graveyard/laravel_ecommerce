@@ -4,9 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class ProductController extends Controller {
+class OrderController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,26 +14,8 @@ class ProductController extends Controller {
 	 */
 	public function index()
 	{
-		$products = Product::select('*')->orderBy('created_at', 'desc')->paginate(5);
-		return view('skins/skin_b/product/index', ['products' => $products] );
-
-		# return response()->json( Product::all() );
+		//
 	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-
-	public function show($id)
-	{
-		//need to guard for non-existence
-		return response()->json( Product::find($id) );
-	}
-
-
 
 	/**
 	 * Show the form for creating a new resource.
@@ -56,6 +37,16 @@ class ProductController extends Controller {
 		//
 	}
 
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		
+	}
 
 	/**
 	 * Show the form for editing the specified resource.

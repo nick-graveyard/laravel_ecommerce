@@ -1,5 +1,8 @@
 <?php
 use App\Models\Product;
+use App\Models\User;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,40 @@ use App\Models\Product;
 */
 
 
-Route::get('/', ['as' => 'home', function () {
+Route::get('/', ['as'=> 'home', 'uses' =>'ProductController@index' ]);
+Route::get('/home', ['as'=> 'home', 'uses' =>'ProductController@index']);
+/* Route::get('/', ['as' => 'home', function () {
 	$products = Product::select('*')->orderBy('created_at', 'desc')->paginate(5);
     return view('skins/skin_b/home', ['products' => $products] );
 }]);
+
+
+Route::get('/home', ['as' => 'home', function () {
+	$products = Product::select('*')->orderBy('created_at', 'desc')->paginate(5);
+    return view('skins/skin_b/home', ['products' => $products] );
+}]);
+*/
+
+Route::get('/aboot', ['as' => 'aboot', function () {
+    return view('skins/skin_b/aboot');
+}]);
+
+
+Route::get('/blog', ['as' => 'blog', function () {
+    # return view('skins/skin_b/aboot');
+    return 'blog!';
+}]);
+
+Route::get('/categories', ['as' => 'categories', function () {
+    # return view('skins/skin_b/aboot');
+    return 'categories!';
+}]);
+
+Route::get('/cart', ['as' => 'cart', function () {
+    # return view('skins/skin_b/aboot');
+    return 'cart!';
+}]);
+
 
 
 Route::get('/product/category/{category_name}',  function(){
@@ -27,33 +60,44 @@ Route::get('/product/category/{category_name}',  function(){
 
 
 
+
 // REST routes
-Route::resource('category', 'CategoryController');
-Route::resource('product', 'ProductController');
+Route::resource('categories', 'CategoryController');
+Route::resource('products', 'ProductController');
+Route::resource('orders', 'OrderController');
+
+Route::get('/account', array('as' => 'account', function(){
+	$user = Auth::user();
+	$controller = 'App\Http\Controllers\UserController';
+    return App::make($controller)->show($user->id);
+}));
 
 
-
+# get currently logged in user's account
+# Route::get('/account', ['as'=> 'account', 'uses' => 'UserController@account']);
+# restful user management
+Route::resource('users', 'UserController');
 
 
 // Authentication routes...
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('/login', ['as'=> 'login', 'uses' => 'Auth\AuthController@getLogin' ] );
+Route::post('/login', 'Auth\AuthController@postLogin');
+Route::get('/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('/register', ['as'=> 'register', 'uses' => 'Auth\AuthController@getRegister' ] );
+Route::post('/register', 'Auth\AuthController@postRegister');
+
 
 
 // test routes
 Route::get('hello_world', function () {
-    return 'Hello World';
+    return 'Ayyyyy lmao';
 });
 
 

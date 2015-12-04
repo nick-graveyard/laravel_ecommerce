@@ -12,12 +12,12 @@ class UserProfile extends Model {
 
 	public function image()
 	    {
-	        return $this->belongsTo('App\Image');
+	        return $this->belongsTo('App\Models\Image');
 	    }
 
 	public function user()
 	    {
-	        return $this->belongsTo('App\User');
+	        return $this->belongsTo('App\Models\User');
 	    }
 
 }

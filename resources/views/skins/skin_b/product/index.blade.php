@@ -10,7 +10,7 @@
 				<div class="panel-body">
 						
 						{{-- product index loop --}}
-						@each('models.product.index', $products, 'product')
+						@each('skins.skin_b.product.show', $products, 'product')
 
 
 					    {{-- pagination --}}

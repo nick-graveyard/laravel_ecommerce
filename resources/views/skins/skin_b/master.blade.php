@@ -49,25 +49,20 @@
                         <a class="" href=" {{ route('home') }}">Products</a>
                     </li>
                     <li>
-                        <a class="" href="#services">Categories</a>
+                        <a class="" href=" {{ route('categories') }}">Categories</a>
                     </li>
                      <li>
-                        <a class="" href="#services">Blog</a>
+                        <a class="" href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li>
-                        <a class="" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="" href="#contact">Contact</a>
-                    </li>
-                     <li>
-                        <a class="" href="">Login/Register</a>
+                        <a class="" href="{{ route('aboot') }}">About/Contact</a>
                     </li>
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right">
-                      <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                      <li><a href="../navbar-static-top/">Static top</a></li>
-                      <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+                      <li ><a href="{{ route('login') }}">Login </a></li>
+                      <li><a href="{{ route('cart') }}">Cart</a></li>
+                      <li><a href="{{ route('account') }}">Account</a></li>
                 </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

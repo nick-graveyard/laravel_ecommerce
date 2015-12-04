@@ -14,6 +14,8 @@ html {
     line-height: 1.4;
 }
 
+
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -89,7 +91,11 @@ textarea {
    ========================================================================== */
 
 
-
+#main-stage
+{
+    /* needed to give adequate margin for the nav bar which is out of the flow. */
+    margin-top:55px;
+}
 
 
 
