@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 
 use Illuminate\Http\Request;
 
@@ -45,7 +46,14 @@ class OrderController extends Controller {
 	 */
 	public function show($id)
 	{
-		
+		#find user 
+		$order =  Order::findOrFail($id);
+		#skin to call
+		$view = 'skins.skin_b.order.show';
+		#call the view with the user
+		return view( $view , ['order' => $order]);
+
+
 	}
 
 	/**

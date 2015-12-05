@@ -46,4 +46,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 
+	public function getCart()
+	{
+		return $this->orders->where('is_cart', 1)->first();
+	}
+
+
 }

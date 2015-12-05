@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_token" content="{{ csrf_token() }}">
+
 
 	<title>My Laravel Ecommerce Site</title>
 
 	<link href="{{ asset('/skins/skin_b/css/main.css') }}" rel="stylesheet">
 	<link href="{{ asset('/skins/skin_b/css/scrolling-nav.css') }}" rel="stylesheet">
 	<link href="{{ asset('/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -79,8 +80,11 @@
 
 
 	<!-- Scripts -->
+
 	<script src="{{ asset('/vendor/jquery/jquery-2.1.4.min.js') }}"></script>
 	<script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('/skins/skin_b/js/main.js') }}"></script>
+
 
 	<!--
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -46,39 +46,29 @@ Route::get('/categories', ['as' => 'categories', function () {
 }]);
 
 Route::get('/cart', ['as' => 'cart', function () {
-    # return view('skins/skin_b/aboot');
-    return 'cart!';
+    $id = Auth::user()->getCart()-> id; 
+    return redirect('orders/' . $id);
 }]);
 
 
-
-Route::get('/product/category/{category_name}',  function(){
-	$product = Product::ofCategory($category_name)->get();
-	return response()->json($product);
-});
-
 Route::get('/account', array('as' => 'account', function(){
-	$user = Auth::user();
-	$controller = 'App\Http\Controllers\UserController';
-    return App::make($controller)->show($user->id);
+	$id = Auth::user()->id;
+    return redirect('users/' . $id);
+
 }));
 
+Route::get('/product/category/{category_name}',  function(){
+    $product = Product::ofCategory($category_name)->get();
+    return response()->json($product);
+});
 
 
 // REST routes
 Route::resource('categories', 'CategoryController');
 Route::resource('products', 'ProductController');
 Route::resource('orders', 'OrderController');
-
-
-
-
-
-
-# get currently logged in user's account
-# Route::get('/account', ['as'=> 'account', 'uses' => 'UserController@account']);
-# restful user management
 Route::resource('users', 'UserController');
+
 
 
 // Authentication routes...
@@ -95,6 +85,15 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('/register', ['as'=> 'register', 'uses' => 'Auth\AuthController@getRegister' ] );
 Route::post('/register', 'Auth\AuthController@postRegister');
 
+
+
+Route::get('test', function() {
+    return 'GREAT SUCCESS!';
+});
+
+Route::post('test', function() {
+    return 'GREAT SUCCESS!';
+});
 
 
 // test routes

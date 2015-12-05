@@ -15,6 +15,7 @@ class ProductController extends Controller {
 	 */
 	public function index()
 	{
+		# returns a list of products in decreasing order by date created
 		$products = Product::select('*')->orderBy('created_at', 'desc')->paginate(5);
 		return view('skins/skin_b/product/index', ['products' => $products] );
 
