@@ -87,12 +87,15 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 
 
-Route::get('test', function() {
-    return 'GREAT SUCCESS!';
+
+
+// test routes
+Route::get('echo', function() {
+    return 'Great Success';
 });
 
-Route::post('test', function() {
-    return 'GREAT SUCCESS!';
+Route::post('echo', function() {
+    return var_dump(Input::all());
 });
 
 

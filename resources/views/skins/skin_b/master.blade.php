@@ -28,7 +28,6 @@
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -83,8 +82,8 @@
 
 	<script src="{{ asset('/vendor/jquery/jquery-2.1.4.min.js') }}"></script>
 	<script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('/vendor/bootbox/bootbox.min.js') }}"></script>
   <script src="{{ asset('/skins/skin_b/js/main.js') }}"></script>
-
 
 	<!--
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
