@@ -61,7 +61,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                       <li ><a href="{{ route('login') }}">Login </a></li>
-                      <li><a href="{{ route('cart') }}">Cart</a></li>
+                      <li><a href="{{ route('carts.index') }}">Cart</a></li>
                       <li><a href="{{ route('account') }}">Account</a></li>
                 </ul>
           </div><!--/.nav-collapse -->

@@ -45,12 +45,6 @@ Route::get('/categories', ['as' => 'categories', function () {
     return 'categories!';
 }]);
 
-Route::get('/cart', ['as' => 'cart', function () {
-    $id = Auth::user()->getCart()-> id; 
-    return redirect('orders/' . $id);
-}]);
-
-
 Route::get('/account', array('as' => 'account', function(){
 	$id = Auth::user()->id;
     return redirect('users/' . $id);
@@ -68,6 +62,8 @@ Route::resource('categories', 'CategoryController');
 Route::resource('products', 'ProductController');
 Route::resource('orders', 'OrderController');
 Route::resource('users', 'UserController');
+Route::resource('carts', 'CartController');
+
 
 
 
@@ -90,7 +86,7 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 
 // test routes
-Route::get('echo', function() {
+Route::get('test', function() {
     return 'Great Success';
 });
 
@@ -99,10 +95,16 @@ Route::post('echo', function() {
 });
 
 
-// test routes
 Route::get('hello_world', function () {
     return 'Ayyyyy lmao';
 });
+
+Route::get('hasCart', function() {
+
+    return 'Great Success';
+});
+
+
 
 
 
@@ -119,4 +121,23 @@ Route::get('hello_world', function () {
 Route::get('/skin_a', function () {
     return view('skins/skin_a/home');
 });
+
+
+    // return redirect('/echo'); 
+        //return $request->all();
+        //return "store is work";
+
+        //return var_dump( Input::all() );
+        // return 
+        // Session::flash('message', 'Successfully created nerd!');
+        // return Redirect::to('home');
+        //return var_dump( Auth::user() );
+
+
+Route::get('/cart', ['as' => 'cart', function () {
+    $id = Auth::user()->getCart()-> id; 
+    return redirect('orders/' . $id);
+}]);
+
+
 */

@@ -8,6 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model {
 protected $softDelete = true;
 protected $fillable = [ "url_location", "description" ];
-	//
-
 }

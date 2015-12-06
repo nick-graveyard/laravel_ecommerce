@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Order;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -46,9 +47,47 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 
-	public function getCart()
+	public function cart()
+	{	
+		if ( !$this->cart_exists() ) 
+		{
+			$this->create_cart();
+		}
+	
+		return $this->belongsTo('App\Models\Order', 'order_id');
+	}
+
+	
+	/* tests if order variable is null 
+	 and if not tests if the order exists
+	*/
+	private function cart_exists()
 	{
-		return $this->orders->where('is_cart', 1)->first();
+		if ( is_null($this->order_id) )
+		{
+			return false;
+		}
+		else if ( !Order::find($this->order_id)->exists() )
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+	}
+
+	/* 
+		creates a cart
+	*/
+	private function create_cart()
+	{
+			$order = new Order;
+			$order->user_id = $this->id;
+			$order->save();
+			$this->order_id = $order->id;
+			$this->save();
 	}
 
 

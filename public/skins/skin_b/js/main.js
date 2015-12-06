@@ -22,7 +22,7 @@ $('.post_to_cart').click( function(){
 	product_id = button_stage.find('.product_id').text();
 	product_quantity = button_stage.find('.product_quantity').text();
 	
-	$.post( "echo", { product_id: product_id, product_quantity: product_quantity })
+	$.post( "carts", { product_id: product_id, product_quantity: product_quantity })
 		  .done(function( data ) {
 		    bootbox.alert( "Data Loaded: " + data );
 		  });
