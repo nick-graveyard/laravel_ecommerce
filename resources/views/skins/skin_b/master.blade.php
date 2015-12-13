@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="_token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{{ csrf_token()  }}">
+    <meta name="_auth"  content="{{ Auth::check() }}">
 
 
 	<title>My Laravel Ecommerce Site</title>
@@ -68,7 +69,7 @@
         </div><!--/.container-fluid -->
     </nav>
 
-       <!-- Main Content -->
+    <!-- Main Content -->
     <div class="container" id="main-stage">
         <div class="row">
             <div class="col-lg-12">
@@ -79,7 +80,6 @@
 
 
 	<!-- Scripts -->
-
 	<script src="{{ asset('/vendor/jquery/jquery-2.1.4.min.js') }}"></script>
 	<script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('/vendor/bootbox/bootbox.min.js') }}"></script>

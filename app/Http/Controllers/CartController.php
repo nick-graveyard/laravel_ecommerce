@@ -8,6 +8,14 @@ use Auth;
 
 class CartController extends Controller {
 
+
+	public function __construct()
+	{
+	    $this->middleware('auth');
+	}
+
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -16,7 +24,9 @@ class CartController extends Controller {
 	public function index()
 	{
 		$user = Auth::user();
-		return $user->cart->items;
+		$items = $user->cart->items;
+		//$view= 'skins.skin_b.order.show';
+		//return view( $view , ['$items' => $items]);
 	}
 
 	/**
@@ -30,7 +40,7 @@ class CartController extends Controller {
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a resource in a cart.
 	 * POST to /carts 
 	 * @return Response
 	 * Note: refactor this into an API namespace at some point.
