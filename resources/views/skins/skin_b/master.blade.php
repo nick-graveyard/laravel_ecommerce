@@ -61,9 +61,13 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                      <li ><a href="{{ route('login') }}">Login </a></li>
-                      <li><a href="{{ route('carts.index') }}">Cart</a></li>
-                      <li><a href="{{ route('account') }}">Account</a></li>
+                      @if (Auth::check())
+                        <li ><a href="{{ route('logout') }}">Logout </a></li>
+                        <li><a href="{{ route('carts.index') }}">Cart({{count(Auth::user()->cart->items)}})</a></li>
+                        <li><a href="{{ route('account') }}">Account</a></li>
+                      @else
+                        <li ><a href="{{ route('login') }}">Login/Register</a></li>
+                      @endif
                 </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
