@@ -62,8 +62,14 @@ Route::resource('categories', 'CategoryController');
 Route::resource('products', 'ProductController');
 Route::resource('orders', 'OrderController');
 Route::resource('users', 'UserController');
-Route::resource('carts', 'CartController');
 
+//Route::controller('carts', 'CartController');
+Route::controller('carts', 'CartController', 
+    ['postAdd' => 'carts.add', 
+     'getIndex' => 'carts.index',
+     'postRemove' => 'carts.remove',
+     'postCount' => 'carts.count' ] 
+    );
 
 
 

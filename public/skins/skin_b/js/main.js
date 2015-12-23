@@ -1,4 +1,4 @@
-// to do: Namespace 
+// get token from a meta tag and assign it to all ajax ops 
 $(function() {
   $.ajaxSetup({
     headers: {
@@ -8,57 +8,87 @@ $(function() {
 });
 
 
-// ready function
+
+// onload function
 $( document ).ready(function() {
-	// is_logged_in();
 });
 
 
-// post to cart
-$('.post_to_cart').click( function() {
-	my_this = this
-	if( !is_logged_in() ) {
+$('#quantity_change').click( function() {
+    alert("yup")
+});
 
-		login_user()
-		.then(function(){
-			post_to_cart(my_this);
-		});			
-	}
-	else {
-		post_to_cart(my_this)
-	}
+
+$('.orderitem_add').submit( function(event) {
+	// Because this is a form, a submit reloads the page.
+	// A page Reload kills all of the Javascript.
+	// This prevents this default form behavior.
+	event.preventDefault();
+	data = $(this).serialize();
+	add_to_cart(data);
 });
 
 
 
-function post_to_cart(context) {
-	/* 
-	Get the parent then traverse DOM downwards
-	Allow any of the elements to be anywhere inside of the 
-	button stage.
-	*/
-	button_stage = $(context).parents('.button_stage');
-	product_name = button_stage.find('.product_name').text();
-	product_id = button_stage.find('.product_id').text();
-	product_quantity = button_stage.find('.product_quantity').text();
-	
-	$.post( "carts", { product_id: product_id, product_quantity: product_quantity })
-		  .then(function( data ) {
-			   bootbox.alert( "Successfully Added: " + data,
-			   function(){
-			   		window.location.reload()
-			   	});   
-		  });
+$('.orderitem_remove').submit( function(event) {
+	event.preventDefault();
+	data = $(this).serialize();
+	delete_from_cart(data);
+});
+
+
+
+
+
+function add_to_cart(in_data) {
+
+	$.ajax({
+	    type:   'POST',
+	    url:    '/carts/add',
+	    data:   in_data,
+	    success: function(data){
+           bootbox.alert(data, function(){
+           		window.location.reload();
+           });  
+           
+    	}
+	});
+
 }
 
+
+function delete_from_cart(in_data)
+{
+	$.ajax({
+	    type:   'POST',
+	    url:    '/carts/remove',
+	    data:   in_data,
+	    success: function(data){
+           bootbox.alert(data,function()
+           	{
+           		window.location.reload();
+           	});  
+    	}
+	});
+}
+
+
+function update_cart_count()
+{
+	$.ajax({
+	    type:   'POST',
+	    url:    '/carts/count',
+	    success: function(data){
+	    	// alert(data);
+	    	$('#cart_count').text(data)
+    	}
+	});
+}
 
 
 // test if a user is logged in
 function is_logged_in() {	
-	//the value of the meta tag set to true if logged in, blank if not
-	var is_auth = $('meta[name=_auth]').attr("content");
-
-	if(is_auth)
+	if( $('meta[name=_auth]').attr("content") )
 	{
 		return true;
 	}
@@ -66,11 +96,7 @@ function is_logged_in() {
 	{
 		return false;
 	}
-
 }
-
-var Popper = function(){};
-
 
 
 // call the bootbox login dialog
@@ -78,8 +104,6 @@ var Popper = function(){};
 // must be named the same as the model fields on the backend
 // pass in an function for a success action
 function login_user() {
-	var def = new $.Deferred();
-
 			bootbox.dialog({
                 title: "Please login or register to continue.",
                 message: '' + 
@@ -115,24 +139,15 @@ function login_user() {
    							url = $('#login_dialog').attr('action');
    							data = $('#login_dialog').serializeJson();
 
-                           	$.post(url, data)
-                           	.done( function(){
-                           		def.resolve();
-                           	}) 
-						    .fail( function(){ 
-						    	login_user();  
-						    });
+         
                         }
                     }
                 }
             }
         );
-
-		return def.promise();
-
 }
 
-
+// JQUERY EXTENSIONS
 // serializes jquery collection to JSON
 $.fn.serializeJson = function() {
    var o = {};
@@ -150,8 +165,13 @@ $.fn.serializeJson = function() {
    return o;
 };
 
-
-
+// gets a url parameter
+$.fn.getUrlParam = function(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 
 

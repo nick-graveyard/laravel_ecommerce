@@ -14,106 +14,72 @@ class CartController extends Controller {
 	    $this->middleware('auth');
 	}
 
-
-
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the cart.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		$user = Auth::user();
-		$items = $user->cart->items;
-		//$view= 'skins.skin_b.order.show';
-		//return view( $view , ['$items' => $items]);
+		$cart = Auth::user()->cart;
+		$items = $cart->items()->orderBy('id', 'desc')->get();
+		$view = 'skins.skin_b.cart.index';
+		return view( $view , ['cart' => $cart, 'items' => $items ]);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return "create is work";
-	}
 
 	/**
 	 * Store a resource in a cart.
 	 * POST to /carts 
 	 * @return Response
-	 * Note: refactor this into an API namespace at some point.
 	 */
-	public function store(Request $request)
+	public function postAdd(Request $request)
 	{	
 		$user = Auth::user();
 
 		try
 		{
 			$user->cart->addItem(
-		 		$request->product_id, 
-		 		$request->product_quantity
+		 		$request->id, 
+		 		$request->quantity
 		 		);
 		}
 		catch(Exception $e)
 		{	
-			$msg = "Item was NOT saved successfully.";
-			return $msg;
+			return "Item was NOT saved successfully.";
 		}
-
 		
 		return "Item saved successfully!";
+	}
 
-
+	public function postCount()
+	{
+		return Auth::user()->cart->items->count();
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
+	 * Remove a resource from a cart.
+	 * POST to /carts/remove 
 	 * @return Response
-	 */
-	public function show($id)
+	*/
+
+	public function postRemove(Request $request)
 	{
+		$user = Auth::user();
 
+		try
+		{
+			$user->cart->removeItem(
+		 		$request->id, 
+		 		$request->quantity
+		 		);
+		}
+		catch(Exception $e)
+		{	
+			return "Item was NOT removed successfully.";
+		}
 
+		return "Item removed successfully!";
+	
 	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		return "edit is work";
-
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		return "update is work";
-
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		return "desroy is work";
-
-	}
-
 }

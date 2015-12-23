@@ -39,9 +39,25 @@ class Order extends Model {
 			return OrderItem::create($params);
 	}
 
-	public function removeItem($item_id)
+	public function removeItem($item_id, $subtract_quantity)
 	{
-		return OrderItem::destroy($item_id);
+	
+		// throws exception if item not found
+		$item = $this->items()->where('id', $item_id)->firstOrFail();
+		
+		$final_quantity =  $item->quantity - $subtract_quantity;
+		
+		if($final_quantity <= 0)
+		{
+			$item->delete();
+		}
+		else
+		{
+			$item->quantity = $final_quantity;
+			$item->save();
+		}
+
+		return true;
 	}
 
 }

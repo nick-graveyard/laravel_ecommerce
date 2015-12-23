@@ -7,32 +7,26 @@
 			</a>
 		</section>
 
+		<section class ="col-md-9">
+			<form class="orderitem_add" action="">
+			 	
+					<h4>
+						<a href="{{ route('products.show', $product->id) }}">
+							<span class="product_name">{{ $product->name }}</span>
+						</a> 
+					</h4>
 
-		<section class="col-md-9 button_stage">
-			<h4>
-				<a href="{{ route('products.show', $product->id) }}">
-					<span class="product_name">{{ $product->name }}</span>
-				</a> 
-			</h4>
-			<div>{{ $product->description }}</div>
-			<div>Price: {{ $product->price }}</div>
-			<div>Category: {{$product->category->name}}</div>
-			<div>Added: {{ $product->created_at }}</div>
-			<div>
-				<span>Product Id:</span>
-				<span class="product_id"> {{$product->id}} </span>
-			</div>
-			<div>
-				<span>Quantity:</span>
-				<span class="product_quantity">1</span>
-			</div>
+				<div class="form-group">
+					<div>{{ $product->description }}</div>
+					<div>Price: {{ $product->price }}</div>
+					<div>
+						 Quantity: <input type="number" name="quantity" value="1" style="text-align:right; width:4em; border: 0px; border-radius: 0px; "> </span>
+					</div>
+				</div>
 
-			{{--
-				very important: this button is linked to the 
-			--}}
-
-			<button type="button" class="btn btn-primary post_to_cart">Add to cart</button>
-			
+				<input type="hidden" name="id" value="{{ $product->id  }}">
+				<button type="submit" class="btn btn-primary">Add to cart</button>
+			</form>
 		</section>
 
 

@@ -40,14 +40,14 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                  </button>
-                <a class="navbar-brand" href="">Welcome to Shirtvana </a>
+                <a class="navbar-brand" href=""> Welcome to Shirtvana </a>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
              
                     <li>
-                        <a class="" href=" {{ route('home') }}">Products</a>
+                        <a class="" href=" {{ route('home') }}">Shop</a>
                     </li>
                     <li>
                         <a class="" href=" {{ route('categories') }}">Categories</a>
@@ -63,7 +63,14 @@
                 <ul class="nav navbar-nav navbar-right">
                       @if (Auth::check())
                         <li ><a href="{{ route('logout') }}">Logout </a></li>
-                        <li><a href="{{ route('carts.index') }}">Cart({{count(Auth::user()->cart->items)}})</a></li>
+                        <li>
+                            <a href="{{ route('carts.index') }}">Cart(
+                              <span id="cart_count">
+                                {{count(Auth::user()->cart->items)}}
+                              </span>
+                              )
+                            </a>
+                        </li>
                         <li><a href="{{ route('account') }}">Account</a></li>
                       @else
                         <li ><a href="{{ route('login') }}">Login/Register</a></li>
