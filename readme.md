@@ -15,6 +15,7 @@
 * database ER diagram
 * tests
 * skinning of front end
+* built in, best in class security
 
 
 ### Philosophical goals
@@ -28,10 +29,12 @@
 2.  Stripe.  
 	* Full Credit Card info stored on Stripes servers.
 	* Only store a token in our database.
-3. Tokenization of sessions. 
-	*[CSRF Prevention](https://laravel.com/docs/master/routing#csrf-x-csrf-token)
+3. Tokenization of sessions.  
+	* [CSRF Prevention](https://laravel.com/docs/master/routing#csrf-x-csrf-token)
 4. Sanitized User inputs
 	* [SQL injection prevention](https://en.wikipedia.org/wiki/SQL_injection)
 	* [Cross site Scripting and other injection attacks](https://en.wikipedia.org/wiki/Cross-site_scripting)
 5. Only open source, actively developed software projects used.
-	* Many users using it. Audit by proxy.
+	* Many active users using it. 
+	* Audit by proxy.
+	* Security patches/updates.
