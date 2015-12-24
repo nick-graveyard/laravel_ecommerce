@@ -49,7 +49,7 @@ class CartController extends Controller {
 			return "Item was NOT saved successfully.";
 		}
 		
-		return "Item saved successfully!";
+		return "Item added to cart!";
 	}
 
 	public function postCount()

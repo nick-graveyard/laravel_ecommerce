@@ -14,6 +14,12 @@
 				<div>  	Purchaser: {{$cart->user->name }}</div>
 				<div> 	Order Started: {{$cart->created_at}} </div>
 				<div>   Order Subtotal: </div>
+				<div>  	
+					<a href="http://google.com">
+						<button id="" class="btn btn-primary">Checkout</button>
+					</a>
+				</div>
+
 			</header>
 		</div>
 	</div>

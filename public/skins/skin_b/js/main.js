@@ -79,7 +79,6 @@ function update_cart_count()
 	    type:   'POST',
 	    url:    '/carts/count',
 	    success: function(data){
-	    	// alert(data);
 	    	$('#cart_count').text(data)
     	}
 	});
