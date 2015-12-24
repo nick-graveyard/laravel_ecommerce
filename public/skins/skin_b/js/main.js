@@ -9,11 +9,6 @@ $(function() {
 
 
 
-// onload function
-$( document ).ready(function() {
-});
-
-
 $('#quantity_change').click( function() {
     alert("yup")
 });
