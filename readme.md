@@ -34,7 +34,15 @@
 4. Sanitized User inputs
 	* [SQL injection prevention](https://en.wikipedia.org/wiki/SQL_injection)
 	* [Cross site Scripting and other injection attacks](https://en.wikipedia.org/wiki/Cross-site_scripting)
-5. Only open source, actively developed software projects used.
+5. Only open source, widely used, actively developed, software projects included.
 	* Many active users using it. 
 	* Audit by proxy.
 	* Security patches/updates.
+
+### Technology
+1. [Laravel](https://laravel.com/)
+2. [Jquery](https://jquery.com/)
+3. [Bootstrap](http://getbootstrap.com/)
+4. [Bootbox](http://bootboxjs.com/)
+1. [Stripe payment](https://stripe.com/)
+2. [Google Analytics](https://www.google.com/analytics/)
