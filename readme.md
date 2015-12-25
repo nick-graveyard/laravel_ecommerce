@@ -20,8 +20,8 @@
 
 ### Philosophical goals
 * There's probably a bunch of these ecommerce options out there, however I want to remain with the Laravel spirit of simplicity and delight to use/extend.
-* I want to keep it easy, cleanly coded, and documented enough for beginners to use happily, while leaving it extensible enough for an experienced dev to fork.
 * Therefore, only what can be found in the Laravel [docs](https://laravel.com/docs) is what I'm using for the backend.
+* I want to keep it easy, cleanly coded, and documented enough for beginners to use happily, while leaving it extensible enough for an experienced dev to fork.
 
 ### Security Goals
 1. [HTTP-within-SSL/TLS](http://security.stackexchange.com/questions/5126/whats-the-difference-between-ssl-tls-and-https)

@@ -6,7 +6,7 @@
 		<div class="col-md-12">
 					
 						{{-- product index loop --}}
-						@each('skins.skin_b.product.show', $products, 'product')
+						@each('skins.skin_b.product.show_short', $products, 'product')
 
 
 					    {{-- pagination --}}

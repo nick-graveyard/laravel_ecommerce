@@ -31,8 +31,12 @@ class ProductController extends Controller {
 
 	public function show($id)
 	{
-		//need to guard for non-existence
-		return response()->json( Product::find($id) );
+		//need to guard/return 404 for non-existence
+		$product = Product::findorFail($id);
+		return view('skins/skin_b/product/show', ['product' => $product] );
+
+		//to implement for json api in the future
+		//return response()->json( Product::find($id) );
 	}
 
 

@@ -75,11 +75,10 @@
                       @if (Auth::check())
                         <li ><a href="{{ route('logout') }}">Logout </a></li>
                         <li>
-                            <a href="{{ route('carts.index') }}">Cart(
-                              <span id="cart_count">
+                            <a href="{{ route('carts.index') }}">
+                              Cart(<span id="cart_count">
                                 {{count(Auth::user()->cart->items)}}
-                              </span>
-                              )
+                              </span>)
                             </a>
                         </li>
                         <li><a href="{{ route('account') }}">Account</a></li>
