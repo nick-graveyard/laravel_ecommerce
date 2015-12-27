@@ -279,5 +279,48 @@ textarea {
     }
 }
 
+/*============================
+Invoice
+==============================
+#invoice_title{
+    height: 4em; 
+    line-height: 4em;
+    width: 100%; 
+    margin: 20px 0 20px 0; 
+    background: #222; 
+    text-align: center;
+    color: white; 
+    font: bold 15px Helvetica, Sans-Serif; 
+    text-decoration: uppercase; 
+    letter-spacing: 20px; 
+    //padding: 8px 0px;
+}
+*/
 
+#invoice_title{
+display: table;
+background: #222; 
+width: 100%; 
+}
+#invoice_title p{
+    /*spacing*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 2em; 
+ 
+    /*text*/
+    letter-spacing: 20px; 
+    color: white; 
+    text-transform: uppercase;
+    font: bold 15px Helvetica, Sans-Serif; 
 
+}
+
+#invoice_summary{
+    display: table;
+    border:solid 1px Black;
+}
+#invoice_summary li{
+    display: table-cell;
+}

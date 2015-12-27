@@ -7,12 +7,15 @@
 					
 						{{-- product index loop --}}
 						@each('skins.skin_b.product.show_short', $products, 'product')
+		</div>
 
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 
 					    {{-- pagination --}}
 					    {!! $products->render() !!}
-
-
+		</div>
 	</div>
 </div>
 @endsection

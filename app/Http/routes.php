@@ -70,8 +70,12 @@ Route::controller('carts', 'CartController',
      'postRemove' => 'carts.remove',
      'postCount' => 'carts.count' ] 
     );
-
-
+Route::get('/checkout', ['as' => 'checkout', function () {
+    return view('skins/skin_b/cart/checkout');
+}]);
+Route::post('/final', ['as' => 'final', function () {
+    return view('skins/skin_b/cart/final');
+}]);
 
 // Authentication routes...
 Route::controllers([
