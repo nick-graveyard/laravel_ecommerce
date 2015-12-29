@@ -63,19 +63,19 @@ Route::resource('products', 'ProductController');
 Route::resource('orders', 'OrderController');
 Route::resource('users', 'UserController');
 
-//Route::controller('carts', 'CartController');
+// Route::controller('carts', 'CartController');
 Route::controller('carts', 'CartController', 
     ['postAdd' => 'carts.add', 
      'getIndex' => 'carts.index',
      'postRemove' => 'carts.remove',
-     'postCount' => 'carts.count' ] 
+     'postCount' => 'carts.count',
+     'getFinal'  => 'carts.final' ] 
     );
+
 Route::get('/checkout', ['as' => 'checkout', function () {
     return view('skins/skin_b/cart/checkout');
 }]);
-Route::post('/final', ['as' => 'final', function () {
-    return view('skins/skin_b/cart/final');
-}]);
+
 
 // Authentication routes...
 Route::controllers([

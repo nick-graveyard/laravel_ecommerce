@@ -1,0 +1,219 @@
+{
+
+	"name": "Nick D. Kiermaier",
+
+	"meta": {
+		"format": "FRESH@0.1.0",
+		"version": "0.1.0"
+	},
+
+	"info": {
+		"label": "Junior Developer",
+		"characterClass": "Programmer",
+		"brief": "Junior Full-stack software developer with 1 years industry experience. 
+		A native of New Orleans LA, Nick enjoys composing and listening to music, biking, and boating.",
+		"image": "http://i.imgur.com/3SmUdAv.jpg",
+		"quote": "Maintain forward momentum."
+	},
+
+	"contact": {
+		"website": "http://nkiermaier.github.io/",
+		"phone": "504-400-5519",
+		"email": "NickKiermaier@gmail.com",
+	},
+
+	"location": {
+		"address": "6319 Marshall Foch St.",
+		"city": "New Orleans",
+		"region": "LA",
+		"code": "70184",
+		"country": "US"
+	},
+
+	"social": [
+
+		{
+			"label": "GitHub",
+			"network": "GitHub",
+			"user": "nkiermaier",
+			"url": "https://github.com/nkiermaier"
+		},
+
+		{
+			"label": "Twitter",
+			"network": "Twitter",
+			"user": "nickkiermaier",
+			"url": "https://twitter.com/nickkiermaier"
+		}
+	],
+
+	"employment": {
+
+		"summary": "4+ years industry IT experience and 1 year professional software development experience.",
+
+		"history": [
+
+			{
+				"employer": "Force Multiplier Solutions",
+				"url": "https://fxsinc.com",
+				"position": "Junior Developer",
+				"summary": "Develop, troubleshoot, and maintain Ruby on Rails and Python applications for the transportation industry.",
+				"start": "2015-03",
+				"current": true,
+				"keywords": ["Agile", "Ruby", "AWS", "Ruby on Rails", "Python", "Linux", "Rspec", "Factory Girl/SeedFu", "GTFS", "KML", "Google Maps"],
+				"highlights": ["Implemented data abstraction layers/parsers for software interfaces between different organizations.", 
+								"Implement on time arrival solutions for transit organizations using real time GPS.", 
+								"Implement Rspec tests and Factory girl factories for Rails applications.",
+								"Technologies used: Ruby on Rails, Rspec, Factory Girl, Python, Linux, GTFS, KML, GPS"]
+			},
+			{
+				"employer": "University of New Orleans - Computer Science Dept.",
+				"url": "www.cs.uno.edu",
+				"position": "Graduate Assistant System Engineer",
+				"summary": "Developed and maintained internal/external websites, Technical Support to Math and Comp Sci faculty, Computer Lab Management.",
+				"start": "2012-08",
+				"end": "2014-05",
+				"keywords": ["HTML", "CSS", Javascript", "Linux", "Mac OSX","Java", "JSP", "PHP"],
+				"highlights": ["Participated in release management of proprietary field research software into thin client devices.",
+								"Assisted laboratory staff with computer lab management and provided technical support help", 
+								"Assisted math and computer science faculty and staff with desktop support related issues."]
+			},
+			{
+				"employer": "Tulane University Primate Center",
+				"position": "System's Engineer II",
+				"summary": "All purpose technology engineer with duties ranging from Enterprise administration to User support.",
+				"start": "2010-05",
+				"end": "2012-08",
+				"keywords": ["DHCP", "Active Directory", "Linux", "Windows", "Mac OSX", "Windows Server", "Python", "Bash"],
+				"highlights": ["Developed and maintained back end server side code for enterprise imaging, backup, & configuration systems.",
+					 			"Managed software configurations, builds, and deployments in both Windows and Mac OS X environments.", 
+					 			"Provided technical support to researchers and scientists with software related issues.",
+					 			"Enterprise imaging, backup, configuration of AD, DHCP, File Sharing, DNS servers"]
+			},
+
+		]
+
+	},
+
+	"education": {
+
+		"summary": "",
+
+		"level": "Master degree",
+
+		"degree": "MSCS",
+
+		"history": [
+
+			{
+				"institution": "University of New Orleans",
+				"url": "https://www.uno.edu/",
+				"start": "2012-08",
+				"end": "2016-05",
+				"grade": "3.9",
+				"summary": "",
+				"curriculum": ["", "Course 2", "Course 2"]
+			},
+
+			{
+				"institution": "Lousiana State University",
+				"url": "http://www.lsu.edu",
+				"start": "2003-09",
+				"end": "2007-06",
+				"grade": "3.2",
+				"summary": "A multiline summary of the education.",
+				"curriculum": ["Course 1", "Course 2", "Course 2"]
+			}
+		]
+
+	},
+
+	"skills": {
+
+		"sets": [{
+			"name": "Web Development",
+			"level": "intermediate",
+			"skills": [
+				"JavaScript", "HTML 5", "CSS", "LAMP", "MVC", "REST"
+			]
+		}, 
+		{
+			"name": "JavaScript",
+			"level": "intermediate",
+			"skills": [
+				"jQuery", "Bootstrap", "JSON"
+			]
+		}, 
+		{
+			"name": "Database",
+			"level": "intermediate",
+			"skills": [
+				"Active Record", "MySql"
+			]
+		},
+		{
+			"name": "Python",
+			"level": "intermediate",
+			"skills": [
+				"functional programming", "iterators", "list comprehensions", "lambdas"
+			]
+		},
+		{
+			"name": "PHP",
+			"level": "intermediate",
+			"skills": [
+				"Namespaces", "Composer", "PHPUnit"
+			]
+		},
+		{
+			"name": "Ruby on Rails",
+			"level": "intermediate",
+			"skills": [
+				"Rspec", "MVC stack", "Gems", "Active Record", "Capistrano", "Passenger", "Asset Pipeline"
+			]
+		},
+		{
+			"name": "Laravel",
+			"level": "intermediate",
+			"skills": [
+				"MVC stack", "Eloquent", "Query Builder", "Blade Templating", "Middleware", "Asset Pipeline"
+			]
+		},
+
+
+
+		],
+
+		"list": [
+			{
+				"name": "Python",
+				"id": "1",
+				"level": "6",
+				"years": 2,
+				"proof": "https://github.com/nkiermaier/volatility_plugins/blob/master/bulkextractor.py",
+				"proof": "https://github.com/nkiermaier/nick_fs"
+			}, 
+			{
+				"name": "Ruby/Rails",
+				"id": "2",
+				"level": "6",
+				"years": 1,
+				"proof": "https://github.com/nkiermaier/dyalikeblags",
+				"proof": "https://dashboard.alertbus.com"
+
+			}, 
+			{
+				"name": "PHP/Laravel",
+				"level": "6",
+				"years": "3",
+				"proof": "http://x-transience.rhcloud.com/"
+			}, 
+			{
+				"name": "Linux",
+				"level": "6",
+				"years": "4+",
+				"proof": "https://github.com/nkiermaier/fresh_setup/tree/master/raw"
+			}
+		]
+	}
+}

@@ -28,6 +28,13 @@ class CartController extends Controller {
 	}
 
 
+	public function getFinal(Request $request)
+	{
+		$items = Auth::user()->cart->items;
+		$view = 'skins.skin_b.cart.final';
+		return view($view, ['items' => $items] );
+	}
+
 	/**
 	 * Store a resource in a cart.
 	 * POST to /carts 
@@ -82,4 +89,5 @@ class CartController extends Controller {
 		return "Item removed successfully!";
 	
 	}
+
 }

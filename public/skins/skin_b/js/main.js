@@ -32,7 +32,9 @@ $('.orderitem_remove').submit( function(event) {
 });
 
 
-
+ $('.dropdown-menu a').click(function(){
+    $('#selected').text($(this).text());
+  });
 
 
 function add_to_cart(in_data) {

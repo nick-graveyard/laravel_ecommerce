@@ -1,4 +1,4 @@
-@extends('skins.skin_b.master')
+Ï@extends('skins.skin_b.master')
 
 @section('content')
 <div class="container">
@@ -11,8 +11,7 @@
 
 	</div>
 	<div class="row">
-		<div class="col-md-12">
-
+		<div class="col-md-12 text-center">
 					    {{-- pagination --}}
 					    {!! $products->render() !!}
 		</div>

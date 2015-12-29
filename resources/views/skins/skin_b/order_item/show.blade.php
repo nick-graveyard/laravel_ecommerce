@@ -1,7 +1,7 @@
 
 <div class="row" style = 'margin-top:10px;'>
 
-	<article id="order_item" style="border-bottom:1px solid e7e7e7; margin:10px">
+	<article id="order_item">
 
 
 		<section class="col-md-4">
@@ -13,18 +13,18 @@
 		</section>
 
 	<form class="orderitem_remove">
-		<section class ="col-md-4">
+		<section class ="col-md-4 col-md-offset-1">
 			
 				<div>Quantity: {{ $order_item->quantity}}</div>
 				<div>Price: {{ $order_item->price  }} </div>
 				<div>Item SubTotal: {{ $order_item->price * $order_item->quantity  }} </div>
-
+				<button id="quantity_change" class="btn btn-success btn-block">Change Quantity</button>
+				<button type="submit" class="btn btn-danger btn-block">Remove</button>
 				<input type="hidden" name="id" value="{{ $order_item->id  }}">
 				<input type="hidden" name="quantity" value="{{ $order_item->quantity  }}">
 		</section>
-		<section class="col-md-4">
-			<button id="quantity_change" class="btn btn-success">Change Quantity</button>
-			<button type="submit" class="btn btn-danger">Remove</button>
+		<section>
+			
 		</section>
 
 	</form>
